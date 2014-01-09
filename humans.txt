@@ -1,0 +1,20 @@
+/* TEAM */
+   
+Designer, Coder, Coffee-Brewer: Carl Ambroselli                            
+Site: www.carl-ambroselli                  
+Location: Berlin, Gemany.
+
+							
+/* THANKS */
+
+Those people didn't actually help me building this website but I learned a lot from them and I wanted to mention them here. :)
+Max Fellmuth: www.maxfellmuth.com
+Felix Last: www.felixlast.de
+Ralf Dorn: www.ralf-dorn.net
+
+                            
+/* SITE */
+
+Last update: 2011/01/13                             
+Standards: HTML5, CSS3
+Software: Photoshop, Coda, Transmit

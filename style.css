@@ -1,0 +1,235 @@
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Arimo'), url('http://themes.googleusercontent.com/static/fonts/arimo/v3/ZS0wkeOZuckNE3boyLYNt6CWcynf_cDxXwCLxiixG1c.woff') format('woff');
+}
+@font-face {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Cabin SemiBold'), local('Cabin-SemiBold'), url('http://themes.googleusercontent.com/static/fonts/cabin/v4/bSicyj3YibVhVPhGZyWVI3YhjbSpvc47ee6xR_80Hnw.woff') format('woff');
+}
+
+body {
+	background: #fff;
+	font: 17px 'Arimo', sans-serif;
+	color: #8e919a;
+	line-height: 10px;
+	-webkit-font-smoothing: antialiased;
+}
+
+a {
+	color: #61646c;
+	text-decoration: none;
+	transition: 0.1s color;
+	-moz-transition: 0.1s color;
+	-webkit-transition: 0.1s color;
+	-o-transition: 0.1s color;
+}
+a:hover {color: #525d83}
+
+b {
+	color: #565962;
+	font: 17px 'Cabin', sans-serif;
+	font-weight: normal;
+}
+
+div#container {
+	width: 750px;
+	margin: 80px auto;
+	text-align: center;
+	opacity: 0;
+	
+}
+body.animate-done a.logo {
+	opacity: 0.8;
+	transition: 0.3s opacity;
+	-moz-transition: 0.3s opacity;
+	-webkit-transition: 0.3s opacity;
+	-o-transition: 0.3s opacity;
+}
+body.animate a.logo {opacity: 0.8;}
+body.animate-done a.logo:hover, body.animate-done a.logo:active {opacity: 1}
+
+div.about p.welcome, div.about span, div.about p b {
+	opacity: 0;
+	transition: 1.3s opacity;
+	-moz-transition: 1.3s opacity;
+	-webkit-transition: 1.3s opacity;
+	-o-transition: 1.3s opacity;
+	transition-delay: 0.7s;
+	-moz-transition-delay: 0.7s;
+	-webkit-transition-delay: 0.7s;
+	-o-transition-delay: 0.6s;
+}
+div.about p b {
+	transition-delay: 0.4s;
+	-moz-transition-delay: 0.4s;
+	-webkit-transition-delay: 0.4s;
+	-o-transition-delay: 0.4s;
+}
+body.animate div.about p.welcome,
+body.animate div.about b,
+body.animate div.about span,
+body.animate-done div.about b,
+body.animate-done div.about span,
+body.animate-done div.about p.welcome {
+	opacity: 1;
+}
+
+div.projects {
+	height: 65px;
+	margin: 70px auto;
+	background: url(bg.png) no-repeat bottom center;
+	padding-bottom: 9px;
+	opacity: 0;
+	width: 0;
+	transition: 1s opacity, 1s width;
+	transition-delay: 1.3s;
+	-moz-transition: 1s opacity, 1s width;
+	-moz-transition-delay: 1.3s;
+	-webkit-transition: 1s opacity, 1s width;
+	-webkit-transition-delay: 1.3s;
+	-o-transition: 1s opacity, 1s width;
+	-o-transition-delay: 1.3s;
+	overflow: hidden;
+}
+div.projects .buttons {
+	opacity: 0;
+	transition: 1s opacity, 1s width;
+	transition-delay: 2.3s;
+	-moz-transition: 1s opacity, 1s width;
+	-moz-transition-delay: 2.3s;
+	-webkit-transition: 1s opacity, 1s width;
+	-webkit-transition-delay: 2.3s;
+	-o-transition: 1s opacity, 1s width;
+	-o-transition-delay: 2.3s;
+}
+body.animate div.projects, body.animate-done div.projects {
+	opacity: 1;
+	width: 767px;
+}
+body.animate div.projects .buttons, body.animate-done div.projects .buttons {
+	opacity: 1;
+}
+div.projects a {
+	height: 72px;
+	display: inline-block;
+	position: relative;
+}
+div.projects a:hover span.normal {opacity: 0}
+div.projects a:hover span.hover {opacity: 1}
+div.projects a span {
+	margin: 25px;
+	background: url(projects.png) no-repeat;
+	display: inline-block;
+	transition: 0.6s opacity;
+	-moz-transition: 0.6s opacity;
+	-webkit-transition: 0.6s opacity;
+	-o-transition: 0.6s opacity;
+}
+div.projects a span.hover {
+	position: absolute;
+	opacity: 0;
+	left: -4px;
+}
+div.projects a.medmallorca span.normal {top: 0px; background-position: 0px 0px; width: 110px; height: 16px;}
+div.projects a.medmallorca span.hover {top: 4px; background-position: 1px -28px; width: 115px; height: 19px}
+div.projects a.ambroselliib span.normal {top: 0px; background-position: 0px -61px; width: 115px; height: 19px}
+div.projects a.ambroselliib span.hover {top: -3px; background-position: 2px -86px; width: 120px; height: 25px}
+div.projects a.might span.normal {top: 0px; background-position: 15px -120px; width: 84px; height: 26px}
+div.projects a.might span.hover {top: -2px; background-position: 20px -152px; width: 85px; height: 45px}
+div.projects a.mensa span.normal {top: 0px; background-position: 0px -204px; width: 78px; height: 19px}
+div.projects a.mensa span.hover {top: -4px; background-position: 4px -235px; width: 82px; height: 24px}
+
+div.projects a.medmallorca:after, div.projects a.ambroselliib:after, div.projects a.might:after {
+	width: 1px;
+	height: 72px;
+	content: '';
+	display: inline-block;
+	background: url(separator.png) no-repeat center center;
+}
+
+div.social {
+	height: 65px;
+	margin-left: -10px;
+	padding-bottom: 9px;
+	opacity: 0;
+	width: 767px;
+	transition: 1s opacity, 1s width;
+	transition-delay: 1.3s;
+	-moz-transition: 1s opacity, 1s width;
+	-moz-transition-delay: 1.3s;
+	-webkit-transition: 1s opacity, 1s width;
+	-webkit-transition-delay: 1.3s;
+	-o-transition: 1s opacity, 1s width;
+	-o-transition-delay: 1.3s;
+	overflow: hidden;
+}
+
+body.animate div.social, body.animate-done div.social {
+	opacity: 1;
+}
+
+div.social a {
+	height: 72px;
+	display: inline-block;
+	position: relative;
+	width: 40px;
+	height: 40px;
+	margin-right: 8px;
+}
+div.social a:hover span.normal {opacity: 0}
+div.social a:hover span.hover {opacity: 1}
+div.social a span {
+	background: url(social.png) no-repeat;
+	display: inline-block;
+	transition: 0.6s opacity;
+	-moz-transition: 0.6s opacity;
+	-webkit-transition: 0.6s opacity;
+	-o-transition: 0.6s opacity;
+	width: 40px;
+	height: 40px;
+	left: 0px;
+	top: 0px;
+}
+div.social a span.hover {
+	position: absolute;
+	opacity: 0;
+}
+div.social a.twitter span.normal {background-position: 0px 0px;}
+div.social a.twitter span.hover {background-position: 0px -42px;}
+div.social a.fb span.normal {background-position: 0px -84px;}
+div.social a.fb span.hover {background-position: 0px -126px;}
+div.social a.mail span.normal {background-position: 0px -169px;}
+div.social a.mail span.hover {background-position: 0px -211px;}
+div.social a.adressbook span.normal {background-position: 0px -253px;}
+div.social a.adressbook span.hover {background-position: 0px -294px;}
+
+
+div.footer {
+	line-height: 8px;
+	font-size: 13px;
+	opacity: 0;
+	transition: 1.3s opacity;
+	-moz-transition: 1.3s opacity;
+	-webkit-transition: 1.3s opacity;
+	-o-transition: 1.3s opacity;
+}
+div.footer a.spacer:after {
+	width: 1px;
+	height: 15px;
+	content: '';
+	display: inline-block;
+	background: url(separator.png) no-repeat center center;
+	padding-left: 25px;
+	margin-bottom: -2px;
+}
+
+div.footer a.spacer.hover{
+	color: #8e919a;
+}
+
+body.animate div.footer, body.animate-done div.footer {opacity: 1}
+

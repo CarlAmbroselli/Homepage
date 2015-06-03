@@ -1,0 +1,27 @@
+body {
+  background: #FFFFFF;
+}
+.intro {
+  font-family: 'Crimson Text', serif;
+  text-align: center;
+}
+
+.intro p {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  font-size: 22px;
+  color: #000000
+}
+
+.intro p .highlight{
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  color: #0F64C9;
+}
+
+.intro .headline {
+  font-size: 35px;
+}

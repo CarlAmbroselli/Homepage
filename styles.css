@@ -4,6 +4,7 @@ body {
 .intro {
   font-family: 'Crimson Text', serif;
   text-align: center;
+  height:100%;
 }
 
 .intro p {
@@ -25,3 +26,91 @@ body {
 .intro .headline {
   font-size: 35px;
 }
+
+.vita {
+  position: absolute;
+  top: 100%;
+  margin-top: -95px;
+  margin-left: 45%;
+} 
+
+.vita h1 {
+  margin-bottom: 30px;
+  font-family: 'Crimson Text', serif;
+}
+
+.vertical_dotted_line {
+  border-left: 2px solid #C5C9C7;
+  height: calc(6*80px);
+  position: absolute;
+  z-index: -100;
+}
+
+.education .vertical_dotted_line {
+  height: calc(2*80px);
+}
+
+.commitment .vertical_dotted_line {
+  height: calc(3*80px);
+}
+
+.memberships .vertical_dotted_line {
+  height: calc(2*80px);
+}
+
+.exchanges .vertical_dotted_line {
+  height: calc(3*80px);
+}
+
+ul li {
+  height: 50px;
+  font-family: 'Lato', sans-serif;
+  padding-bottom: 15px;
+}
+
+ul.job-name {
+  list-style-type: none;
+  padding: 0px;
+  margin-left: -200px;
+  margin-top: 0px;
+  position: absolute;
+}
+
+ul.job-name li {
+  margin-left: -8.5px;
+  margin-bottom: 20px; 
+  z-index: 100;
+  background-color: white;
+}
+
+ul.job-description {
+  padding: 0px;
+  list-style-type: none;
+  margin: 0px;
+  margin-left: 1px;
+}
+
+ul.job-description li {
+  background-image: url(icons/inactive.svg);
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: 18px 18px;
+  padding-left: 35px; 
+  margin-left: -8.5px;
+  margin-bottom: 20px; 
+  z-index: 100;
+}
+
+ul.job-description li.active {
+  background-image: url(icons/active.svg);
+}
+
+/* Not mobile optimized yet */
+@media screen and (max-width: 750px) {
+  .vita {
+    visibility: hidden;
+    clear: both;
+    display: none;
+  }
+}
+

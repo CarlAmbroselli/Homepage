@@ -32,7 +32,7 @@ body {
   top: 100%;
  /*  margin-top: -95px; */
   margin-left: 45%;
-} 
+}
 
 .vita h1 {
   margin-bottom: 30px;
@@ -55,11 +55,11 @@ body {
 }
 
 .memberships .vertical_dotted_line {
-  height: calc(2*80px);
+  height: calc(4*80px);
 }
 
 .exchanges .vertical_dotted_line {
-  height: calc(3*80px);
+  height: calc(4*80px);
 }
 
 ul li {
@@ -78,7 +78,7 @@ ul.job-name {
 
 ul.job-name li {
   margin-left: -8.5px;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
   z-index: 100;
   background-color: white;
 }
@@ -95,9 +95,9 @@ ul.job-description li {
   background-repeat: no-repeat;
   background-position: left top;
   background-size: 18px 18px;
-  padding-left: 35px; 
+  padding-left: 35px;
   margin-left: -8.5px;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
   z-index: 100;
 }
 
@@ -120,6 +120,7 @@ ul.job-description li.active {
  bottom: 10px;
  width: 100%;
  font-family: 'Crimson Text', serif;
+ font-size: 22px;
 }
 
 .contact span {

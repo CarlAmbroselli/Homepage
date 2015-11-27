@@ -495,16 +495,6 @@ select {
 #container a:hover {
     background-color: transparent
 }
-.soundwave {
-    background-image: url("../img/wave.png");
-    width: 100%;
-    background-position: bottom center;
-    background-repeat: no-repeat;
-    height: 119px;
-    padding-top: 5em;
-    margin-bottom: 2em;
-    border-bottom: 1px solid #e9e9e9
-}
 hr {
     border-top: 1px solid #e9e9e9;
     border-bottom: 0;
@@ -552,11 +542,6 @@ hr.titlehr {
 }
 .thumb-logo a:hover {
     background-color: #e9e9e9
-}
-.client-logo {
-    display: table-cell;
-    vertical-align: middle;
-    position: relative;
 }
 .box {
     float: left;
@@ -616,10 +601,6 @@ h2 											{ font-size:1.8em;}
 .prev-arrow							{ display: none }
 .next-arrow							{ display: none }
 .small 									{ font-size:0.875em }
-#project-inquiry .wrapper			{padding:5.000em 0;}
-#project-inquiry .slidewrap,
-#project-inquiry .slider,
-#project-inquiry .slide { height:auto }
 .grid-1 								{ float: none; width:96.969696969697%; }
 .grid-2 								{ float: none; width:96.969696969697%; }
 .grid-3 								{ float: none; width:96.969696969697%; }

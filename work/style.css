@@ -722,6 +722,24 @@ hr {
   background-color: #f6f6f6;
 }
 
+#networks {
+  padding: 110px 0 80px 0;
+}
+
+
+#presentations {
+  padding: 110px 0 80px 0;
+  background-color: #f6f6f6;
+}
+
+#presentations .headline p span {
+  background-color: #f6f6f6;
+}
+
+#press {
+  padding: 110px 0 80px 0;
+}
+
 #portfolio {
   padding: 50px 0 0px 0;
 }

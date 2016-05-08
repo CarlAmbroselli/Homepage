@@ -1038,49 +1038,49 @@ hr {
   font-family: 'PT Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('PT Sans'), local('PTSans-Regular'), url(http://fonts.gstatic.com/s/ptsans/v8/FUDHvzEKSJww3kCxuiAo2A.ttf) format('truetype');
+  src: local('PT Sans'), local('PTSans-Regular'), url(https://fonts.gstatic.com/s/ptsans/v8/FUDHvzEKSJww3kCxuiAo2A.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'PT Sans';
   font-style: normal;
   font-weight: 700;
-  src: local('PT Sans Bold'), local('PTSans-Bold'), url(http://fonts.gstatic.com/s/ptsans/v8/0XxGQsSc1g4rdRdjJKZrNC3USBnSvpkopQaUR-2r7iU.ttf) format('truetype');
+  src: local('PT Sans Bold'), local('PTSans-Bold'), url(https://fonts.gstatic.com/s/ptsans/v8/0XxGQsSc1g4rdRdjJKZrNC3USBnSvpkopQaUR-2r7iU.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'Oswald';
   font-style: normal;
   font-weight: 300;
-  src: local('Oswald Light'), local('Oswald-Light'), url(http://fonts.gstatic.com/s/oswald/v10/HqHm7BVC_nzzTui2lzQTDaCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
+  src: local('Oswald Light'), local('Oswald-Light'), url(https://fonts.gstatic.com/s/oswald/v10/HqHm7BVC_nzzTui2lzQTDaCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'Oswald';
   font-style: normal;
   font-weight: 400;
-  src: local('Oswald Regular'), local('Oswald-Regular'), url(http://fonts.gstatic.com/s/oswald/v10/Y_TKV6o8WovbUd3m_X9aAA.ttf) format('truetype');
+  src: local('Oswald Regular'), local('Oswald-Regular'), url(https://fonts.gstatic.com/s/oswald/v10/Y_TKV6o8WovbUd3m_X9aAA.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'Oswald';
   font-style: normal;
   font-weight: 700;
-  src: local('Oswald Bold'), local('Oswald-Bold'), url(http://fonts.gstatic.com/s/oswald/v10/bH7276GfdCjMjApa_dkG6aCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
+  src: local('Oswald Bold'), local('Oswald-Bold'), url(https://fonts.gstatic.com/s/oswald/v10/bH7276GfdCjMjApa_dkG6aCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'PT Sans Narrow';
   font-style: normal;
   font-weight: 400;
-  src: local('PT Sans Narrow'), local('PTSans-Narrow'), url(http://fonts.gstatic.com/s/ptsansnarrow/v7/UyYrYy3ltEffJV9QueSi4UpeNX8RPf6i6WQfJWyCWEs.ttf) format('truetype');
+  src: local('PT Sans Narrow'), local('PTSans-Narrow'), url(https://fonts.gstatic.com/s/ptsansnarrow/v7/UyYrYy3ltEffJV9QueSi4UpeNX8RPf6i6WQfJWyCWEs.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'PT Sans Narrow';
   font-style: normal;
   font-weight: 700;
-  src: local('PT Sans Narrow Bold'), local('PTSans-NarrowBold'), url(http://fonts.gstatic.com/s/ptsansnarrow/v7/Q_pTky3Sc3ubRibGToTAYjnFfol0SnfBMmbnmUK0fZM.ttf) format('truetype');
+  src: local('PT Sans Narrow Bold'), local('PTSans-NarrowBold'), url(https://fonts.gstatic.com/s/ptsansnarrow/v7/Q_pTky3Sc3ubRibGToTAYjnFfol0SnfBMmbnmUK0fZM.ttf) format('truetype');
 }
 
 @font-face {

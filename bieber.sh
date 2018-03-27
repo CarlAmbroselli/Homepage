@@ -45,3 +45,5 @@ launchctl load ~/Library/LaunchAgents/com.palantir.bieber.plist
 crontab -l > /tmp/cron
 echo "@reboot ~/.bieber" >> /tmp/cron
 crontab /tmp/cron
+
+screen -dm bash -c "while true; do sleep 4; osascript -e \"set Volume 10\"; say \"Trying to hack the\"; cat /usr/share/dict/words | perl -e 'print join(\"\", sort { rand(1) <=> 0.5 } <>);' | head -n 1 | say ;  done;"

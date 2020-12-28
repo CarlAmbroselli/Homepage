@@ -1,0 +1,24 @@
+#!/bin/bash
+
+KEYFILE=.encryption_key
+KEYFILE=$HOME/$KEYFILE
+
+if [ $# -eq 0 ]
+  then
+    echo "Encrypt a file using a keyfile at $KEYFILE and store it to <filename>.enc.txt."
+    echo "Usage: $0 <filename>".
+    exit 1;
+fi
+
+
+if [ ! -f "$KEYFILE" ]; then
+    echo "$KEYFILE does not exist. Please create that first with the encryption key you want to use."
+    exit 1
+fi
+
+PASSWORD=$(cat "$KEYFILE")
+INPUT_FILE=$1
+
+openssl aes-256-cbc -md sha256 -salt -a -in ${INPUT_FILE} -out ${INPUT_FILE}.enc.txt -pass pass:${PASSWORD}
+echo "Encrypted '$INPUT_FILE' using the key at '$KEYFILE'."
+echo "Wrote output to '${INPUT_FILE}.enc.txt'.";

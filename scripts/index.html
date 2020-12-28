@@ -10,6 +10,8 @@
       .clipboard{ display: inline-block; text-decoration: none;}
       .clipboard img { width: 15px; margin-left: 8px; margin-right: 10px; filter: contrast(20%); }
       .hidden { display: none; }
+      .scriptLinks li span { color: gray; font-size: 0.8em;}
+      .scriptLinks li span:before { content: "― "; }
     </style>
   </head>
   <body>
@@ -22,12 +24,29 @@
       <div class="scriptLinks">
         <h3>DigitalOcean</h3>
         <ul>
-          <li><a href="source/droplet-create.txt">Create droplet</a> <i>(you want to edit the SSH key)</i></li>
-          <li><a href="source/droplet-list.txt">List droplets</a></li>
+          <li><a href="source/droplet-list.txt">List droplets</a> <span>Memorizable version of "doctl compute droplet list"</span></li>
+          <li><a href="source/droplet-create.txt">Create droplet</a> <span>Memorizable wrapper around "doctl compute droplet create"</span></li>
+          <li><a href="source/droplet-remove.txt">Remove droplet</a> <span>List all droplets and print the command to delete one</span></li>
+        </ul>
+        <h3>Editor</h3>
+        <ul>
+          <li><a href="source/create-vimrc.txt">Initialize .vimrc</a> <span>This will write my default .vimrc to your local machine</span></li>
+        </ul>
+        <h3>Git</h3>
+        <ul>
+          <li><a href="source/gs.txt">gs</a> <span>git status -sb</span></li>
         </ul>
         <h3>Reverse Engineering</h3>
         <ul>
-            <li><a href="source/install_ida.txt">Install IDA 7.0 Free on Linux</a></li>
+            <li><a href="source/install-ida.txt">Install IDA 7.0 Free on Linux</a> <span>Downloads and installs IDA to be run over X11</span></li>
+        </ul>
+        <h3>Tools</h3>
+        <ul>
+          <li><a href="source/extract.txt">extract</a> <span>Extract a file using unix tools based on the file ending.</span></li>
+          <li><a href="source/encrypt.txt">encrypt</a> <span>Encrypt a file using openssl aes-256-cbc</span></li>
+          <li><a href="source/decrypt.txt">decrypt</a> <span>Decrypt a file using openssl aes-256-cbc</span></li>
+          <li><a href="source/venv.txt">venv</a> <span>Create a python3 venv (if it doesn't exist already) and activate it in the current folder</span></li>
+          <li><a href="source/webserver.txt">webserver</a> <span>Run a python3 webserver on port 8000 from the current working directory</span></li>
         </ul>
       </div>
     </main>
@@ -50,7 +69,7 @@
           var link = getAbsoluteUrl(el.getAttribute("href"));
           var a = document.createElement('a');
           a.className = "clipboard"
-          a.setAttribute('href', '#');
+          a.setAttribute('href', '');
           a.innerHTML = '<img src="clipboard.svg" />';
 
           var sup = document.createElement('sup');
@@ -58,7 +77,7 @@
           sup.innerText = 'copied!';
           a.appendChild(sup);
           var shell = 'bash <(curl -s ' + link + ')';
-          a.onclick = function() { navigator.clipboard.writeText(shell); sup.className = ''; window.setTimeout(function() { sup.className = 'hidden';}, 2000); };
+          a.onclick = function() { navigator.clipboard.writeText(shell); sup.className = ''; window.setTimeout(function() { sup.className = 'hidden';}, 2000); return false;};
           el.parentNode.insertBefore(a, el.nextSibling);
 
       }); 

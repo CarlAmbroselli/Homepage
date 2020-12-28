@@ -1,0 +1,10 @@
+#!/bin/sh
+set -x
+if ! command -v open &> /dev/null
+then
+    echo "Open 'http://localhost:8000' in your browser";
+else 
+    bash -c "sleep 1; open 'http://localhost:8000';" &
+fi
+
+python -m SimpleHTTPServer 8000

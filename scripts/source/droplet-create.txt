@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+# Bash script template from https://betterdev.blog/minimal-safe-bash-script-template/
+
+set -Eeuo pipefail
+
+script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd -P)
+
+usage() {
+  cat <<EOF
+Usage: $(basename "${BASH_SOURCE[0]}") [-h] [-v] [-l] [-s s-1vcpu-1gb] [-i docker-20-04]
+
+A wrapper around doctl for easy creation of droplets.
+
+Available options:
+
+-h, --help      Print this help and exit
+-v, --verbose   Print script debug info
+-l, --large     Create a s-4vcpu-8gb instance (optional, default is s-1vcpu-1gb)
+-s, --size      Specify the instance size to create (use "doctl compute size list" to see all instance sizes) (optional, default is s-1vcpu-1gb)
+-i, --image     Specify the image to create (use "doctl compute image list" to see all images) (optional, default is docker-20-04)
+EOF
+  exit
+}
+
+msg() {
+  echo >&2 -e "${1-}"
+}
+
+die() {
+  local msg=$1
+  local code=${2-1} # default exit status 1
+  msg "$msg"
+  exit "$code"
+}
+
+parse_params() {
+  # default values of variables set from params
+  INSTANCE_SIZE='s-1vcpu-1gb'
+  IMAGE='docker-20-04'
+
+  while :; do
+    case "${1-}" in
+    -h | --help) usage ;;
+    -v | --verbose) set -x ;;
+    -l | --large) INSTANCE_SIZE='s-4vcpu-8gb' ;;
+    -s | --size)
+      INSTANCE_SIZE="${2-}"
+      shift
+      ;;
+    -i | --image)
+      IMAGE="${2-}"
+      shift
+      ;;
+    -?*) die "Unknown option: $1" ;;
+    *) break ;;
+    esac
+    shift
+  done
+
+  args=("$@")
+
+  return 0
+}
+
+parse_params "$@"
+
+if ! command -v doctl &> /dev/null
+then
+    die "Error! Please make sure that 'doctl' is installed in your path."
+fi
+
+msg "Creating a droplet using image $IMAGE of size $INSTANCE_SIZE."
+msg "This command will finish once the droplet is created."
+doctl compute droplet create --region fra1 --ssh-keys "b5:c0:09:bd:dc:ac:3e:75:85:28:0a:f8:a4:8e:02:78" --image $IMAGE --wait --size $INSTANCE_SIZE $(date +"instance-%m-%d-%Y-%H-%M")
+

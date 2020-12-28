@@ -8,7 +8,7 @@
     </style>
     <style>
       .clipboard{ display: inline-block; text-decoration: none;}
-      .clipboard img { width: 15px; margin-left: 10px; filter: contrast(20%); }
+      .clipboard img { width: 15px; margin-left: 8px; margin-right: 10px; filter: contrast(20%); }
       .hidden { display: none; }
     </style>
   </head>
@@ -20,6 +20,11 @@
       <article><aside><p>My main machine is a very minimal MacOS host and I usually create ad-hoc digitalocean instances for any type of work and then run tools over X11 and mount directories using sshfs. This increases security since I barely run any code locally on my machine and allows me to use exactly the hardware resouces I want for each project. It also forces me to backup all work and make it reproducible since I destroy these droplets once I'm done.</p></aside></article>
 
       <div class="scriptLinks">
+        <h3>DigitalOcean</h3>
+        <ul>
+          <li><a href="source/droplet-create.txt">Create droplet</a> <i>(you want to edit the SSH key)</i></li>
+          <li><a href="source/droplet-list.txt">List droplets</a></li>
+        </ul>
         <h3>Reverse Engineering</h3>
         <ul>
             <li><a href="source/install_ida.txt">Install IDA 7.0 Free on Linux</a></li>
@@ -52,9 +57,9 @@
           sup.className = 'hidden';
           sup.innerText = 'copied!';
           a.appendChild(sup);
-          shell = 'bash <(curl -s ' + link + ')';
+          var shell = 'bash <(curl -s ' + link + ')';
           a.onclick = function() { navigator.clipboard.writeText(shell); sup.className = ''; window.setTimeout(function() { sup.className = 'hidden';}, 2000); };
-          el.parentNode.appendChild(a);
+          el.parentNode.insertBefore(a, el.nextSibling);
 
       }); 
   </script>

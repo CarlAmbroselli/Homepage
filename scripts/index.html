@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Scripts</title>
+    <style>
+      :root{--border-radius:5px;--box-shadow:2px 2px 10px;--color:#118bee;--color-accent:#118bee15;--color-bg:#fff;--color-bg-secondary:#e9e9e9;--color-secondary:#920de9;--color-secondary-accent:#920de90b;--color-shadow:#f4f4f4;--color-text:#000;--color-text-secondary:#999;--font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;--hover-brightness:1.2;--justify-important:center;--justify-normal:left;--line-height:1.5;--width-card:285px;--width-card-medium:460px;--width-card-wide:800px;--width-content:1080px}body{background:var(--color-bg);color:var(--color-text);font-family:var(--font-family);line-height:var(--line-height);margin:0;overflow-x:hidden;padding:1rem 0}main{margin:0 auto;max-width:var(--width-content);padding:2rem 1rem}hr{background-color:var(--color-bg-secondary);border:none;height:1px;margin:4rem 0}h1,h2,h3,h4,h5,h6{line-height:var(--line-height)}mark{padding:.1rem}ol li,ul li{padding:.2rem 0}p{margin:.75rem 0;padding:0}a{color:var(--color);display:inline-block;font-weight:700;text-decoration:none}a:hover{filter:brightness(var(--hover-brightness));text-decoration:underline}a b,a em,a i,a strong,button{border-radius:var(--border-radius);display:inline-block;font-size:medium;font-weight:700;line-height:var(--line-height);margin:.5rem 0;padding:1rem 2rem}a b,a strong,button{background-color:var(--color);border:2px solid var(--color);color:var(--color-bg)}a em,a i{border:2px solid var(--color);border-radius:var(--border-radius);color:var(--color);display:inline-block;padding:1rem 2rem}sup{background-color:var(--color-secondary);border-radius:var(--border-radius);color:var(--color-bg);font-size:xx-small;font-weight:700;margin:.2rem;padding:.2rem .3rem;position:relative;top:2px;}
+    </style>
+    <style>
+      .clipboard{ display: inline-block; text-decoration: none;}
+      .clipboard img { width: 15px; margin-left: 10px; filter: contrast(20%); }
+      .hidden { display: none; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Scripts</h1>
+
+      <ul class="scriptLinks">
+          <li><a href="source/install_ida.sh">Install IDA 7.0 Free on Linux</a></li>
+      </ul>
+    </main>
+
+  </body>
+  <script>
+      var getAbsoluteUrl = (function() {
+        var a;
+
+        return function(url) {
+          if(!a) a = document.createElement('a');
+          a.href = url;
+
+          return a.href;
+        };
+      })();
+
+      var links = document.querySelectorAll(".scriptLinks a");
+      Array.prototype.forEach.call(links, function(el) {
+          var link = getAbsoluteUrl(el.getAttribute("href"));
+          var a = document.createElement('a');
+          a.className = "clipboard"
+          a.setAttribute('href', '#');
+          a.innerHTML = '<img src="clipboard.svg" />';
+
+          var sup = document.createElement('sup');
+          sup.className = 'hidden';
+          sup.innerText = 'copied!';
+          a.appendChild(sup);
+          shell = 'bash <(curl -s ' + link + ')';
+          a.onclick = function() { navigator.clipboard.writeText(shell); sup.className = ''; window.setTimeout(function() { sup.className = 'hidden';}, 2000); };
+          el.parentNode.appendChild(a);
+
+      }); 
+  </script>
+</html>

@@ -30,9 +30,17 @@
       <a href="archive/2016/work/" target="_blank">previous work</a> • 
       <a href="scripts/">scripts</a> • 
       <a href="https://medium.com/@carlambroselli" target="_blank">blog</a> • 
-      <a href="archive/">archive</a>
+      <a href="archive/">archive</a> • 
+      <a href="#send-email" onclick="contact()">contact me 📨</a>
     </main>
-
-    
   </body>
+
+  <script>
+    // obfuscated mailto to prevent spam bots to scrape my email from my website
+    function contact() {
+      var m = document.createElement("a");
+      m.href = atob('bWFpbHRvOmhlbGxvQGNhcmwtYW1icm9zZWxsaS5kZQ==');
+      m.click();
+    }
+  </script>
 </html>

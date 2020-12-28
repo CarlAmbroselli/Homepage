@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Carl Ambroselli</title>
+    <description>Knowledge base</description>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 30 Jun 2016 13:00:45 +0200</pubDate>
+    <lastBuildDate>Thu, 30 Jun 2016 13:00:45 +0200</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Never pass unsanitized input to your mongodb. Never.</title>
+        <description>
+</description>
+        <pubDate>Thu, 30 Jun 2016 00:00:00 +0200</pubDate>
+        <link>/articles/unserialized-mongo</link>
+        <guid isPermaLink="true">/articles/unserialized-mongo</guid>
+        
+        
+        <category>security</category>
+        
+      </item>
+    
+      <item>
+        <title>Get Mac resolution in terminal</title>
+        <description>&lt;p&gt;I have a folder for scripts in &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.bin&lt;/code&gt; and added that folder to my &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt;. I put the following script into &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.bin/resolution&lt;/code&gt; and made executable with &lt;code class=&quot;highlighter-rouge&quot;&gt;chmod +x ~/.bin/resolution&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;This allows me to quickly get the current resolution of the connected screens (including the interal MacBook screen) by just running the command &lt;code class=&quot;highlighter-rouge&quot;&gt;resolution&lt;/code&gt; in my terminal.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+system_profiler SPDisplaysDataType | grep Resolution | sed -e &lt;span class=&quot;s1&quot;&gt;&#39;s/^[^R]*//g&#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Mon, 20 Jun 2016 00:00:00 +0200</pubDate>
+        <link>/articles/get-mac-resolution</link>
+        <guid isPermaLink="true">/articles/get-mac-resolution</guid>
+        
+        
+        <category>terminal</category>
+        
+      </item>
+    
+      <item>
+        <title>Extract any file with a single command</title>
+        <description>&lt;p&gt;I have a folder for scripts in &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.bin&lt;/code&gt; and added that folder to my $PATH.&lt;/p&gt;
+
+&lt;p&gt;Having the following script placed in &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.bin/extract&lt;/code&gt; and made executable with &lt;code class=&quot;highlighter-rouge&quot;&gt;chmod +x ~/.bin/extract&lt;/code&gt; allows me to use the same command to extract any file like  &lt;code class=&quot;highlighter-rouge&quot;&gt;extract file.zip&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;extract file.tar.gz&lt;/code&gt;. If you are missing an executable used by this script just install it with &lt;a href=&quot;http://brew.sh/&quot; target=&quot;_blank&quot;&gt;homebrew&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#! /bin/bash&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; -f &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;then
+  case&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.tar.bz2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  tar -jxvf &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;                        &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.tar.gz&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;   tar -zxvf &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;                        &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.bz2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;      bunzip2 &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;                          &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.dmg&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;      hdiutil mount &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;                    &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.gz&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;       gunzip &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;                           &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.tar&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;      tar -xvf &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;                         &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.tbz2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;     tar -jxvf &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;                        &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.tgz&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;      tar -zxvf &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;                        &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.zip&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;      unzip &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;                            &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.ZIP&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;      unzip &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;                            &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.pax&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;      cat &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt; | pax -r                     &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.pax.Z&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;    uncompress &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt; --stdout | pax -r     &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.rar&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;      unrar x &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;                          &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.Z&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;        uncompress &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;                       &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;          &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&#39;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&#39; cannot be extracted/mounted via extract()&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;esac&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; is not a valid file&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Mon, 20 Jun 2016 00:00:00 +0200</pubDate>
+        <link>/articles/extract-anything</link>
+        <guid isPermaLink="true">/articles/extract-anything</guid>
+        
+        
+        <category>terminal</category>
+        
+      </item>
+    
+      <item>
+        <title>Introduction to machine learning</title>
+        <description>&lt;p&gt;&lt;em&gt;Disclaimer: The information and graphics here are mainly taken and summerized from the Stanford machine learning course by Andrew Ng.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Chances are high that you use machine learning every day without knowing it. Everytime you search with Google, get recommended articles on Amazon or send a letter via post you get the results because of machine learning. But lets jump straight to knowledge.&lt;/p&gt;
+
+&lt;h3 id=&quot;supervised-learning&quot;&gt;Supervised learning&lt;/h3&gt;
+
+&lt;p&gt;When you have a dataset like shown here you could apply different leadning algorithms. One would be to find a straight line that matches the dataset to make predictions like so:
+&lt;strong class=&quot;img-headline&quot;&gt;House price prediction&lt;/strong&gt;
+&lt;img src=&quot;/img/posts/machine-learning/algorithm-1.png&quot; alt=&quot;&quot; /&gt;
+With this prediction a house with the size of 750 square feet would cost around $150,000.&lt;/p&gt;
+
+&lt;p&gt;But maybe it is better to use a different learning algorithm like a quadratic polinomial function which would output a prediction like so:
+&lt;strong class=&quot;img-headline&quot;&gt;House price prediction&lt;/strong&gt;
+&lt;img src=&quot;/img/posts/machine-learning/algorithm-2.png&quot; alt=&quot;&quot; /&gt;
+This would lead to a prediction around $200,000 for a house of 750 square meter. Both examples are using &lt;strong&gt;supervised learning&lt;/strong&gt; which refers to the fact, that “correct answers” are given. It is also a &lt;strong&gt;regression&lt;/strong&gt; problem, which means it predicts a &lt;em&gt;continuous valued output&lt;/em&gt; (price).&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 20 Jun 2016 00:00:00 +0200</pubDate>
+        <link>/articles/machine-learning</link>
+        <guid isPermaLink="true">/articles/machine-learning</guid>
+        
+        
+        <category>machine-learning</category>
+        
+      </item>
+    
+  </channel>
+</rss>

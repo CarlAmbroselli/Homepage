@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Extract any file with a single command</title>
+  <meta name="description" content="I have a folder for scripts in ~/.bin and added that folder to my $PATH.Having the following script placed in ~/.bin/extract and made executable with chmod +...">
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../css/main.css">
+
+  <link rel="canonical" href="extract-anything.html">
+  <link rel="alternate" type="application/rss+xml" title="Carl Ambroselli" href="../feed.xml" />
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="../favicon.ico">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="../favicon.png">
+</head>
+
+
+<body>
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="table cover">
+        
+
+<div class="cover-card table-cell table-middle">
+  
+  <img src="../img/avatar.jpg" alt="" class="avatar">
+  
+  <a href="../index.html" class="author_name">Carl Ambroselli</a>
+  <span class="author_job">IT-Systems Engineering Student</span>
+  <span class="author_bio mbm">Software Engineer, UI Designer, Snowboarder, wannabe DJ.</span>
+  <nav class="nav">
+    <ul class="nav-list">
+       
+      <li class="nav-item">
+        <a href="../archive/index.html">Archive</a>
+        <span>  </span>
+      </li>
+            
+      <li class="nav-item">
+        <a href="../categories/index.html">Categories</a>
+        <span>  </span>
+      </li>
+         
+    </ul>
+  </nav>
+  <!--  <script type="text/javascript">
+  // based on http://stackoverflow.com/a/10300743/280842
+  function gen_mail_to_link(hs, subject) {
+    var lhs,rhs;
+    var p = hs.split('@');
+    lhs = p[0];
+    rhs = p[1];
+    document.write("<a class=\"social-link-item\" target=\"_blank\" href=\"mailto");
+    document.write(":" + lhs + "@");
+    document.write(rhs + "?subject=" + subject + "\"><i class=\"fa fa-fw fa-envelope\"></i><\/a>");
+  }
+</script>
+<div class="social-links">
+  <ul>
+    
+    <li><a href="http://twitter.com/carlambroselli" class="social-link-item" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></li>
+    <li><a href="http://facebook.com/carlambroselli" class="social-link-item" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></li>
+    
+    <li><a href="http://linkedin.com/in/carlambroselli" class="social-link-item" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a></li>
+    
+    
+    
+    <li><a href="http://github.com/carlambroselli" class="social-link-item" target="_blank"><i class="fa fa-fw fa-github"></i></a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+ -->
+</div>
+
+      </div>
+    </div>
+    <div class="col s12 m9">
+      <div class="post-listing">
+        <a class="btn" href= "../index.html" >
+  Home
+</a>
+
+
+
+<div id="post">
+  <header class="post-header">
+    <h1 title="Extract any file with a single command">Extract any file with a single command</h1>
+    <span class="post-meta">
+      <span class="post-date">
+        20 JUN 2016
+      </span>
+      •
+      <span class="read-time" title="Estimated read time">
+  
+  
+    1 min read
+  
+</span>
+
+    </span>
+
+  </header>
+
+  <article class="post-content">
+    <p>I have a folder for scripts in <code class="highlighter-rouge">~/.bin</code> and added that folder to my $PATH.</p>
+
+<p>Having the following script placed in <code class="highlighter-rouge">~/.bin/extract</code> and made executable with <code class="highlighter-rouge">chmod +x ~/.bin/extract</code> allows me to use the same command to extract any file like  <code class="highlighter-rouge">extract file.zip</code> or <code class="highlighter-rouge">extract file.tar.gz</code>. If you are missing an executable used by this script just install it with <a href="https://brew.sh/" target="_blank">homebrew</a>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#! /bin/bash</span>
+<span class="k">if</span> <span class="o">[</span> -f <span class="nv">$1</span> <span class="o">]</span>
+<span class="k">then
+  case</span> <span class="nv">$1</span> <span class="k">in</span>
+      <span class="k">*</span>.tar.bz2<span class="p">)</span>  tar -jxvf <span class="nv">$1</span>                        <span class="p">;;</span>
+      <span class="k">*</span>.tar.gz<span class="p">)</span>   tar -zxvf <span class="nv">$1</span>                        <span class="p">;;</span>
+      <span class="k">*</span>.bz2<span class="p">)</span>      bunzip2 <span class="nv">$1</span>                          <span class="p">;;</span>
+      <span class="k">*</span>.dmg<span class="p">)</span>      hdiutil mount <span class="nv">$1</span>                    <span class="p">;;</span>
+      <span class="k">*</span>.gz<span class="p">)</span>       gunzip <span class="nv">$1</span>                           <span class="p">;;</span>
+      <span class="k">*</span>.tar<span class="p">)</span>      tar -xvf <span class="nv">$1</span>                         <span class="p">;;</span>
+      <span class="k">*</span>.tbz2<span class="p">)</span>     tar -jxvf <span class="nv">$1</span>                        <span class="p">;;</span>
+      <span class="k">*</span>.tgz<span class="p">)</span>      tar -zxvf <span class="nv">$1</span>                        <span class="p">;;</span>
+      <span class="k">*</span>.zip<span class="p">)</span>      unzip <span class="nv">$1</span>                            <span class="p">;;</span>
+      <span class="k">*</span>.ZIP<span class="p">)</span>      unzip <span class="nv">$1</span>                            <span class="p">;;</span>
+      <span class="k">*</span>.pax<span class="p">)</span>      cat <span class="nv">$1</span> | pax -r                     <span class="p">;;</span>
+      <span class="k">*</span>.pax.Z<span class="p">)</span>    uncompress <span class="nv">$1</span> --stdout | pax -r     <span class="p">;;</span>
+      <span class="k">*</span>.rar<span class="p">)</span>      unrar x <span class="nv">$1</span>                          <span class="p">;;</span>
+      <span class="k">*</span>.Z<span class="p">)</span>        uncompress <span class="nv">$1</span>                       <span class="p">;;</span>
+      <span class="k">*</span><span class="p">)</span>          <span class="nb">echo</span> <span class="s2">"'</span><span class="nv">$1</span><span class="s2">' cannot be extracted/mounted via extract()"</span> <span class="p">;;</span>
+  <span class="k">esac</span>
+<span class="k">else
+  </span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2"> is not a valid file"</span>
+<span class="k">fi</span>
+</code></pre>
+</div>
+
+  </article>
+</div>
+
+<div class="share-buttons">
+  <h6>Share on: </h6>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=/articles/extract-anything" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=/articles/extract-anything" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=/articles/extract-anything" class="google-plus btn" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+    <li>
+      <a href="https://news.ycombinator.com/submitlink?u=/articles/extract-anything" class="hacker-news btn" title="Share on Hacker News"><i class="fa fa-hacker-news"></i><span> Hacker News</span></a>
+    </li>
+    <li>
+      <a href="https://www.reddit.com/submit?url=/articles/extract-anything" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
+    </li>
+  </ul>
+</div><!-- end share-buttons -->
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'carlambroselli';
+    var disqus_config = function () {
+        this.page.url = 'carl-ambroselli.de';
+    };
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+        <footer>
+  &copy; 2016 Carl Ambroselli. Made in Berlin - with <i style="padding: 0 10px;" class="fa fa-heart heart-icon"></i>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+
+
+</body>
+</html>

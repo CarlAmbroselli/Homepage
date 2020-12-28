@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Carl Ambroselli | Knowledge Base</title>
+  <meta name="description" content="Knowledge base">
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <link rel="canonical" href="index.html">
+  <link rel="alternate" type="application/rss+xml" title="Carl Ambroselli" href="feed.xml" />
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="favicon.ico">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="favicon.png">
+</head>
+
+
+<body>
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="table cover">
+        
+
+<div class="cover-card table-cell table-middle">
+  
+  <img src="img/avatar.jpg" alt="" class="avatar">
+  
+  <a href="index.html" class="author_name">Carl Ambroselli</a>
+  <span class="author_job">IT-Systems Engineering Student</span>
+  <span class="author_bio mbm">Software Engineer, UI Designer, Snowboarder, wannabe DJ.</span>
+  <nav class="nav">
+    <ul class="nav-list">
+       
+      <li class="nav-item">
+        <a href="archive/index.html">Archive</a>
+        <span>  </span>
+      </li>
+            
+      <li class="nav-item">
+        <a href="categories/index.html">Categories</a>
+        <span>  </span>
+      </li>
+         
+    </ul>
+  </nav>
+  <!--  <script type="text/javascript">
+  // based on http://stackoverflow.com/a/10300743/280842
+  function gen_mail_to_link(hs, subject) {
+    var lhs,rhs;
+    var p = hs.split('@');
+    lhs = p[0];
+    rhs = p[1];
+    document.write("<a class=\"social-link-item\" target=\"_blank\" href=\"mailto");
+    document.write(":" + lhs + "@");
+    document.write(rhs + "?subject=" + subject + "\"><i class=\"fa fa-fw fa-envelope\"></i><\/a>");
+  }
+</script>
+<div class="social-links">
+  <ul>
+    
+    <li><a href="http://twitter.com/carlambroselli" class="social-link-item" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></li>
+    <li><a href="http://facebook.com/carlambroselli" class="social-link-item" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></li>
+    
+    <li><a href="http://linkedin.com/in/carlambroselli" class="social-link-item" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a></li>
+    
+    
+    
+    <li><a href="http://github.com/carlambroselli" class="social-link-item" target="_blank"><i class="fa fa-fw fa-github"></i></a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+ -->
+</div>
+
+      </div>
+    </div>
+    <div class="col s12 m9">
+      <div class="post-listing">
+        
+<section class="post">
+  <header class="post-header">
+    <p class="post-meta">
+      <span class="post-date">
+        30 JUN 2016
+      </span>
+      
+      •
+      
+        <a class="post-cat" href="categories/index.html#security">security</a>
+        
+      
+      
+    </p>
+    <h4>
+      <a href="articles/unserialized-mongo.html" class="post-title" title="Never pass unsanitized input to your mongodb. Never.">Never pass unsanitized input to your mongodb. Never.</a>
+      
+    </h4>
+
+    
+
+    </header>
+
+    
+    <div class="post-description">
+      <p>
+        
+
+      </p>
+    </div>
+    
+
+    
+
+</section>
+
+<section class="post">
+  <header class="post-header">
+    <p class="post-meta">
+      <span class="post-date">
+        20 JUN 2016
+      </span>
+      
+      •
+      
+        <a class="post-cat" href="categories/index.html#terminal">terminal</a>
+        
+      
+      
+    </p>
+    <h4>
+      <a href="articles/get-mac-resolution.html" class="post-title" title="Get Mac resolution in terminal">Get Mac resolution in terminal</a>
+      
+    </h4>
+
+    
+
+    </header>
+
+    
+    <div class="post-description">
+      <p>
+        <p>I have a folder for scripts in <code class="highlighter-rouge">~/.bin</code> and added that folder to my <code class="highlighter-rouge">$PATH</code>. I put the following script into <code class="highlighter-rouge">~/.bin/resolution</code> and made executable with <code class="highlighter-rouge">chmod +x ~/.bin/resolution</code>.</p>
+
+<p>This allows me to quickly get the current resolution of the connected screens (including the interal MacBook screen) by just running the command <code class="highlighter-rouge">resolution</code> in my terminal.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+system_profiler SPDisplaysDataType | grep Resolution | sed -e <span class="s1">'s/^[^R]*//g'</span>
+</code></pre>
+</div>
+
+      </p>
+    </div>
+    
+
+    
+
+</section>
+
+<section class="post">
+  <header class="post-header">
+    <p class="post-meta">
+      <span class="post-date">
+        20 JUN 2016
+      </span>
+      
+      •
+      
+        <a class="post-cat" href="categories/index.html#terminal">terminal</a>
+        
+      
+      
+    </p>
+    <h4>
+      <a href="articles/extract-anything.html" class="post-title" title="Extract any file with a single command">Extract any file with a single command</a>
+      
+    </h4>
+
+    
+
+    </header>
+
+    
+    <div class="post-description">
+      <p>
+        <p>I have a folder for scripts in <code class="highlighter-rouge">~/.bin</code> and added that folder to my $PATH.</p>
+
+<p>Having the following script placed in <code class="highlighter-rouge">~/.bin/extract</code> and made executable with <code class="highlighter-rouge">chmod +x ~/.bin/extract</code> allows me to use the same command to extract any file like  <code class="highlighter-rouge">extract file.zip</code> or <code class="highlighter-rouge">extract file.tar.gz</code>. If you are missing an executable used by this script just install it with <a href="https://brew.sh/" target="_blank">homebrew</a>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#! /bin/bash</span>
+<span class="k">if</span> <span class="o">[</span> -f <span class="nv">$1</span> <span class="o">]</span>
+<span class="k">then
+  case</span> <span class="nv">$1</span> <span class="k">in</span>
+      <span class="k">*</span>.tar.bz2<span class="p">)</span>  tar -jxvf <span class="nv">$1</span>                        <span class="p">;;</span>
+      <span class="k">*</span>.tar.gz<span class="p">)</span>   tar -zxvf <span class="nv">$1</span>                        <span class="p">;;</span>
+      <span class="k">*</span>.bz2<span class="p">)</span>      bunzip2 <span class="nv">$1</span>                          <span class="p">;;</span>
+      <span class="k">*</span>.dmg<span class="p">)</span>      hdiutil mount <span class="nv">$1</span>                    <span class="p">;;</span>
+      <span class="k">*</span>.gz<span class="p">)</span>       gunzip <span class="nv">$1</span>                           <span class="p">;;</span>
+      <span class="k">*</span>.tar<span class="p">)</span>      tar -xvf <span class="nv">$1</span>                         <span class="p">;;</span>
+      <span class="k">*</span>.tbz2<span class="p">)</span>     tar -jxvf <span class="nv">$1</span>                        <span class="p">;;</span>
+      <span class="k">*</span>.tgz<span class="p">)</span>      tar -zxvf <span class="nv">$1</span>                        <span class="p">;;</span>
+      <span class="k">*</span>.zip<span class="p">)</span>      unzip <span class="nv">$1</span>                            <span class="p">;;</span>
+      <span class="k">*</span>.ZIP<span class="p">)</span>      unzip <span class="nv">$1</span>                            <span class="p">;;</span>
+      <span class="k">*</span>.pax<span class="p">)</span>      cat <span class="nv">$1</span> | pax -r                     <span class="p">;;</span>
+      <span class="k">*</span>.pax.Z<span class="p">)</span>    uncompress <span class="nv">$1</span> --stdout | pax -r     <span class="p">;;</span>
+      <span class="k">*</span>.rar<span class="p">)</span>      unrar x <span class="nv">$1</span>                          <span class="p">;;</span>
+      <span class="k">*</span>.Z<span class="p">)</span>        uncompress <span class="nv">$1</span>                       <span class="p">;;</span>
+      <span class="k">*</span><span class="p">)</span>          <span class="nb">echo</span> <span class="s2">"'</span><span class="nv">$1</span><span class="s2">' cannot be extracted/mounted via extract()"</span> <span class="p">;;</span>
+  <span class="k">esac</span>
+<span class="k">else
+  </span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2"> is not a valid file"</span>
+<span class="k">fi</span>
+</code></pre>
+</div>
+
+      </p>
+    </div>
+    
+
+    
+
+</section>
+
+<section class="post">
+  <header class="post-header">
+    <p class="post-meta">
+      <span class="post-date">
+        20 JUN 2016
+      </span>
+      
+      •
+      
+        <a class="post-cat" href="categories/index.html#machine-learning">machine-learning</a>
+        
+      
+      
+    </p>
+    <h4>
+      <a href="articles/machine-learning.html" class="post-title" title="Introduction to machine learning">Introduction to machine learning</a>
+      
+    </h4>
+
+    
+
+    </header>
+
+    
+    <div class="post-description">
+      <p>
+        <p><em>Disclaimer: The information and graphics here are mainly taken and summerized from the Stanford machine learning course by Andrew Ng.</em></p>
+
+<p>Chances are high that you use machine learning every day without knowing it. Everytime you search with Google, get recommended articles on Amazon or send a letter via post you get the results because of machine learning. But lets jump straight to knowledge.</p>
+
+<h3 id="supervised-learning">Supervised learning</h3>
+
+<p>When you have a dataset like shown here you could apply different leadning algorithms. One would be to find a straight line that matches the dataset to make predictions like so:
+<strong class="img-headline">House price prediction</strong>
+<img src="img/posts/machine-learning/algorithm-1.png" alt="" />
+With this prediction a house with the size of 750 square feet would cost around $150,000.</p>
+
+<p>But maybe it is better to use a different learning algorithm like a quadratic polinomial function which would output a prediction like so:
+<strong class="img-headline">House price prediction</strong>
+<img src="img/posts/machine-learning/algorithm-2.png" alt="" />
+This would lead to a prediction around $200,000 for a house of 750 square meter. Both examples are using <strong>supervised learning</strong> which refers to the fact, that “correct answers” are given. It is also a <strong>regression</strong> problem, which means it predicts a <em>continuous valued output</em> (price).</p>
+
+
+      </p>
+    </div>
+    
+
+    
+
+</section>
+
+
+        <footer>
+  &copy; 2016 Carl Ambroselli. Made in Berlin - with <i style="padding: 0 10px;" class="fa fa-heart heart-icon"></i>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+
+
+</body>
+</html>

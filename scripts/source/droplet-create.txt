@@ -17,7 +17,7 @@ Available options:
 -v, --verbose   Print script debug info
 -l, --large     Create a s-4vcpu-8gb instance (optional, default is s-1vcpu-1gb)
 -s, --size      Specify the instance size to create (use "doctl compute size list" to see all instance sizes) (optional, default is s-1vcpu-1gb)
--i, --image     Specify the image to create (use "doctl compute image list" to see all images) (optional, default is docker-20-04)
+-i, --image     Specify the image to create (use "doctl compute image list-application; doctl compute image list-distribution; doctl compute image list-user" to see all images) (optional, default is docker-20-04)
 EOF
   exit
 }

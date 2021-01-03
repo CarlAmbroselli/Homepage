@@ -1,0 +1,41 @@
+#!/bin/bash
+
+set -eo pipefail
+
+if [ $# -eq 0 ]; then
+  echo "Usage: $0 <mount-path>"
+  exit 1
+fi
+
+# Make sure rclone is installed
+if ! command -v rclone &> /dev/null; then
+  # Rclone is not installed, ask if we should install it
+  read -p "rclone not installed. Do you want to install it? [y/N] " -n 1 -r
+  echo
+  if [[ ! $REPLY =~ ^[Yy]$ ]]
+  then
+    echo "Not installing rclone, exiting."
+    exit 1
+  fi
+
+  # Install rclone
+  curl https://rclone.org/install.sh | sudo bash
+fi
+
+if [[ -z "${RCLONE_DROPBOX_CLIENT_ID}" ]]; then
+  read -p "Please enter client_id: " RCLONE_DROPBOX_CLIENT_ID
+  export RCLONE_DROPBOX_CLIENT_ID
+fi
+
+if [[ -z "${DROPBOX_CLIENT_SECRET}" ]]; then
+  read -p "Please enter client_secret: " RCLONE_DROPBOX_CLIENT_SECRET
+  export RCLONE_DROPBOX_CLIENT_SECRET
+fi
+
+if [[ -z "${DROPBOX_ACCESS_TOKEN}" ]]; then
+  read -p "Please enter access_token: " DROPBOX_ACCESS_TOKEN
+  RCLONE_DROPBOX_TOKEN="{\"access_token\":\"$DROPBOX_ACCESS_TOKEN\",\"token_type\":\"bearer\",\"expiry\":\"0001-01-01T00:00:00Z\"}"
+  export RCLONE_DROPBOX_TOKEN
+fi
+
+rclone mount :dropbox: $1 &

@@ -12,6 +12,7 @@
       .hidden { display: none; }
       .scriptLinks li span { color: gray; font-size: 0.8em;}
       .scriptLinks li span:before { content: "― "; }
+      a { cursor: pointer; }
     </style>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -53,6 +54,8 @@
           <li><a href="source/webserver.txt">webserver</a> <span>Run a python3 webserver on port 8000 from the current working directory</span></li>
         </ul>
       </div>
+
+      <article><aside><p>To download all commands, <a onclick="cloneAll()"> click here</a>.<sup id="cloneAllCopied" class="hidden">copied!</sup> (this will copy a script to your clipboard that downloads all commands to your current local folder)</p></aside></article>
     </main>
 
   </body>
@@ -85,5 +88,21 @@
           el.parentNode.insertBefore(a, el.nextSibling);
 
       }); 
+
+      function cloneAll(e) {
+        var linkToFilename = function(link) {
+          return link.replace(/.*\//gi, "").replace(/\.txt$/gi, "");
+        }
+        var command = '';
+        Array.prototype.forEach.call(links, function(el) {
+          var link = getAbsoluteUrl(el.getAttribute("href"));
+          command += "curl -s " + link + " --output " + linkToFilename(link) + "; chmod +x " + linkToFilename(link) + ";\n";
+        });
+        navigator.clipboard.writeText(command);
+        var sup = document.getElementById("cloneAllCopied");
+        sup.className = ''; 
+        window.setTimeout(function() { sup.className = 'hidden';}, 2000);
+        return false;
+      }
   </script>
 </html>

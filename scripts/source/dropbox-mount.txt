@@ -38,4 +38,9 @@ if [[ -z "${DROPBOX_ACCESS_TOKEN}" ]]; then
   export RCLONE_DROPBOX_TOKEN
 fi
 
-rclone mount :dropbox: $1 &
+nohup rclone mount :dropbox: $1 > /tmp/rclone.log 2>&1 &
+
+sleep 1
+cat /tmp/rclone.log | grep -v 'NOTICE: Config file' # default notice because we don't use a config file for security reasons
+
+exit 0

@@ -33,8 +33,9 @@ fi
 snap install glow # markdown renderer
 apt install git-extras # things like 'git ignore file.txt'
 
-# Setup vim
-bash <(curl -s https://carl-ambroselli.de/scripts/source/create-vimrc.txt)</code></pre>
+# Configuration
+bash <(curl -s https://carl-ambroselli.de/scripts/source/create-vimrc.txt)
+git config credential.helper 'cache --timeout=86400' # Store git https credentials in-memory for 24h</code></pre>
       
       <h3>Tools for development</h3>
       <ul>

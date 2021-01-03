@@ -2,11 +2,6 @@
 
 set -eo pipefail
 
-if [ $# -eq 0 ]; then
-  echo "Usage: $0 <mount-path>"
-  exit 1
-fi
-
 # Make sure rclone is installed
 if ! command -v rclone &> /dev/null; then
   # Rclone is not installed, ask if we should install it
@@ -23,24 +18,31 @@ if ! command -v rclone &> /dev/null; then
 fi
 
 if [[ -z "${RCLONE_DROPBOX_CLIENT_ID}" ]]; then
-  read -p "Please enter client_id: " RCLONE_DROPBOX_CLIENT_ID
+  read -p "Please enter dropbox client_id: " RCLONE_DROPBOX_CLIENT_ID
   export RCLONE_DROPBOX_CLIENT_ID
 fi
 
 if [[ -z "${RCLONE_DROPBOX_CLIENT_SECRET}" ]]; then
-  read -p "Please enter client_secret: " RCLONE_DROPBOX_CLIENT_SECRET
+  read -p "Please enter dropbox client_secret: " RCLONE_DROPBOX_CLIENT_SECRET
   export RCLONE_DROPBOX_CLIENT_SECRET
 fi
 
 if [[ -z "${RCLONE_DROPBOX_TOKEN}" ]]; then
-  read -p "Please enter access_token: " DROPBOX_ACCESS_TOKEN
+  read -p "Please enter dropbox access_token: " DROPBOX_ACCESS_TOKEN
   RCLONE_DROPBOX_TOKEN="{\"access_token\":\"$DROPBOX_ACCESS_TOKEN\",\"token_type\":\"bearer\",\"expiry\":\"0001-01-01T00:00:00Z\"}"
   export RCLONE_DROPBOX_TOKEN
 fi
 
-nohup rclone mount :dropbox: $1 > /tmp/rclone.log 2>&1 &
+if [[ -z "${RCLONE_B2_ACCOUNT}" ]]; then
+  read -p "Please enter b2 key_id: " RCLONE_B2_ACCOUNT
+  export RCLONE_B2_ACCOUNT
+fi
 
-sleep 1
-cat /tmp/rclone.log | grep -v 'NOTICE: Config file' # default notice because we don't use a config file for security reasons
+if [[ -z "${RCLONE_B2_KEY}" ]]; then
+  read -p "Please enter b2 key: " RCLONE_B2_KEY
+  export RCLONE_B2_KEY
+fi
 
-exit 0
+export RCLONE_B2_HARD_DELETE=true
+
+rclone copy :dropbox:/ :b2://carl-files/dropbox --progress --tpslimit 9

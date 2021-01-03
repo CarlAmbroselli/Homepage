@@ -1,4 +1,11 @@
 #!/bin/bash
-doctl compute droplet list
 
-echo "Run 'doctl compute droplet delete <DROPLET-ID>' for the droplet you want to delete next..."
+if [ $# -eq 0 ]; then
+  doctl compute droplet list
+  echo "Run 'doctl compute droplet delete <DROPLET-ID>' for the droplet you want to delete next..."
+  exit 0
+else
+  echo "Will remove the following droplet:"
+  doctl compute droplet list | grep $1
+  doctl compute droplet delete $1
+fi

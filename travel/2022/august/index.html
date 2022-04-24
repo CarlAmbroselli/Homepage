@@ -17,9 +17,14 @@
             let checkOut = "2022-08-14"
             let guests = 10
 
-            function addListing(addToId, id, title, location) {
+            function addListing(addToId, id, title, location, mode, link) {
+
+                var transport = "";
+                if (mode) {
+                    transport += `(<a target="_blank" href=${link}>${mode}</a>)`
+                }
         
-                let code = `<div><h3 style="margin-bottom: 0"><span style="padding-left: 10px;">${location}</span></h3>
+                let code = `<div><h3 style="margin-bottom: 0"><span style="padding-left: 10px;">${location}</span> ${transport}</h3>
                                 <div class="airbnb-embed-frame" data-id="${id}" data-view="home" style="width:450px;height:300px;margin:auto">
                                 <a href="https://www.airbnb.de/rooms/${id}?check_in=${checkIn}&amp;check_out=${checkOut}&amp;guests=${guests}&amp;adults=${guests}&amp;s=66&amp;source=embed_widget">Auf
                                 Airbnb ansehen</a><a href="https://www.airbnb.de/rooms/${id}?check_in=${checkIn}&amp;check_out=${checkOut}&amp;guests=${guests}&amp;adults=${guests}&amp;s=66&amp;source=embed_widget"
@@ -28,17 +33,25 @@
 
                 document.getElementById(addToId).innerHTML += code;
             }
+
+            function generateBahnLink(start, end, depart, arrive) {
+                return `https://reiseauskunft.bahn.de/bin/query.exe/dn?S=${start}&Z=${end}&date=${depart}&returnDate=${arrive}`
+            }
+
+            function generateFlightLink(from, to) {
+                return `https://www.google.com/travel/flights?q=Flights%20to%20${to}%20from%20${from}%20on%20${checkIn}%20through%20${checkOut}`
+            }
         
             document.getElementById("checkin").innerText = checkIn;
             document.getElementById("checkout").innerText = checkOut;
             document.getElementById("guests").innerText = guests;
 
-            addListing("airbnb", "568493960014303466", "Penthouse Großglockner mit Sauna", "Wörtherberg, Salzburg, Austria")
-            addListing("airbnb", "45062424", "Villa Bella Vista - Penthouse Apartment", "Pörtschach am Wörthersee, Kärnten, Austria")
-            addListing("airbnb", "7268981", "Villa sul Lago (mit privatem Strand)", "Anguillara Sabazia, Latium, Italien")
-            addListing("airbnb", "13067124", "Villa Seba erstaunlicher Pool und Meerblick in der Nähe von Syrakus", "Brucoli, Sicilia, Italien")
-            addListing("airbnb", "45839736", "Villa mit 5 Schlafzimmern mit privatem Pool und Wifi in Trecastagni", "Trecastagni, Sicilia, Italien")
-            addListing("airbnb", "40310403", "Corso37 Home -Haus und Küche im Herzen von Rom", "Rom, Latium, Italien")
+            addListing("airbnb", "568493960014303466", "Penthouse Großglockner mit Sauna", "Wörtherberg, Salzburg, Austria", "Bahn", generateBahnLink("Berlin+Hbf", "Salzburg", "11.08.2022", "14.08.2022"))
+            addListing("airbnb", "45062424", "Villa Bella Vista - Penthouse Apartment", "Pörtschach am Wörthersee, Kärnten, Austria", "Bahn", generateBahnLink("Berlin+Hbf", "P%C3%B6rtschach+am+W%C3%B6rther+See", "11.08.2022", "14.08.2022"))
+            addListing("airbnb", "7268981", "Villa sul Lago (mit privatem Strand)", "Anguillara Sabazia, Latium, Italien", "Flug", generateFlightLink("BER", "FCO"))
+            addListing("airbnb", "40310403", "Corso37 Home -Haus und Küche im Herzen von Rom", "Rom, Latium, Italien", "Flug", generateFlightLink("BER", "FCO"))
+            addListing("airbnb", "13067124", "Villa Seba erstaunlicher Pool und Meerblick in der Nähe von Syrakus", "Brucoli, Sicilia, Italien", "Flug", generateFlightLink("BER", "CTA"))
+            addListing("airbnb", "45839736", "Villa mit 5 Schlafzimmern mit privatem Pool und Wifi in Trecastagni", "Trecastagni, Sicilia, Italien", "Flug", generateFlightLink("BER", "CTA"))
             </script>
 
     </body>

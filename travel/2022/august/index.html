@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    </head>
+    <body style="padding: 20px;">
+        <h1>Urlaubsplanung August</h1>
+        <h4><span>Check-In: </span><span id="checkin"></span></h4>
+        <h4><span>Check-Out: </span><span id="checkout"></span></h4>
+        <h4><span>Anzahl Gäste: </span><span id="guests"></span></h4>
+        <div id="airbnb" style="float: left; display: flex; flex-flow: wrap;"></div>
+
+        <script async="" src="https://www.airbnb.de/embeddable/airbnb_jssdk"></script>
+        <script>
+            let checkIn = "2022-08-11"
+            let checkOut = "2022-08-14"
+            let guests = 10
+
+            function addListing(addToId, id, title, location) {
+        
+                let code = `<div><h3 style="margin-bottom: 0"><span style="padding-left: 10px;">${location}</span></h3>
+                                <div class="airbnb-embed-frame" data-id="${id}" data-view="home" style="width:450px;height:300px;margin:auto">
+                                <a href="https://www.airbnb.de/rooms/${id}?check_in=${checkIn}&amp;check_out=${checkOut}&amp;guests=${guests}&amp;adults=${guests}&amp;s=66&amp;source=embed_widget">Auf
+                                Airbnb ansehen</a><a href="https://www.airbnb.de/rooms/${id}?check_in=${checkIn}&amp;check_out=${checkOut}&amp;guests=${guests}&amp;adults=${guests}&amp;s=66&amp;source=embed_widget"
+                                rel="nofollow">${title}</a>
+                            </div></div>`
+
+                document.getElementById(addToId).innerHTML += code;
+            }
+        
+            document.getElementById("checkin").innerText = checkIn;
+            document.getElementById("checkout").innerText = checkOut;
+            document.getElementById("guests").innerText = guests;
+
+            addListing("airbnb", "568493960014303466", "Penthouse Großglockner mit Sauna", "Wörtherberg, Salzburg, Austria")
+            addListing("airbnb", "45062424", "Villa Bella Vista - Penthouse Apartment", "Pörtschach am Wörthersee, Kärnten, Austria")
+            addListing("airbnb", "7268981", "Villa sul Lago (mit privatem Strand)", "Anguillara Sabazia, Latium, Italien")
+            addListing("airbnb", "13067124", "Villa Seba erstaunlicher Pool und Meerblick in der Nähe von Syrakus", "Brucoli, Sicilia, Italien")
+            addListing("airbnb", "45839736", "Villa mit 5 Schlafzimmern mit privatem Pool und Wifi in Trecastagni", "Trecastagni, Sicilia, Italien")
+            addListing("airbnb", "40310403", "Corso37 Home -Haus und Küche im Herzen von Rom", "Rom, Latium, Italien")
+            </script>
+
+    </body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Contact Notes (iOS App)</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+
+    <link rel="stylesheet" href="mvp.css">
+    <style>
+        header {
+            padding: 1rem 1rem;
+        }
+        h1 {
+            font-family: Futura, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        }
+        article {
+            padding: 0 5vw;
+            color: #4B4B4B;
+            font-family: Georgia,serif;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .alternative-link {
+            color: #4B4B4B;;
+            font-weight: normal;
+            text-decoration: underline;
+        }
+
+        footer {
+            margin: auto;
+            text-align: center;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            article, .alternative-link {
+                color: #FBFBFB;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Contact Notes</h1>
+        <h3>The personal CRM for minimalists, <a href="https://apps.apple.com/app/id1616449868?platform=iphone">available on iOS.</a></h3>
+    </header>
+
+    <article>
+        <p>
+            Keeping bonded with people is nothing one can take for granted, but when achieved provides immense upside for almost every component of your life. 
+        </p>
+        <details>
+            <summary>Expand for more thoughts on bonding with people</summary>
+            <p>
+                Very often this happens through series of serendipitous events, the more often you bump into people, to easier it is to stay truely connected to them. Sometimes people cross our mind and we realize we haven't had contact with them in a while and we reach out to meet up or chat.
+            </p>
+            <p>
+                However, very often this "serendipitous mind crossing" doesn't happen for too long and so you start to loose contact to the point where it would "feel awkward to reach out and ask to grab a coffee" and you also barely know anything anymore about the other person, other than you used to really like them, found them inspiring and are missing the time when you were more closely bonded.
+            </p>
+        </details>
+
+        <p>
+            <a href="https://apps.apple.com/app/id1616449868?platform=iphone">Contact Notes (iOS)</a> provides an easy way to <strong>regularly keep in touch with people</strong>, inspired by <a class="alternative-link" href="https://sive.rs/hundreds">Derek Sivers</a> and <a class="alternative-link" href="https://jakobgreenfeld.com/stay-in-touch">Jakob Greenfeld</a>. It is based on your phone's contact book, so no need to manage a separate database. 
+        </p>
+        <p>
+            Notes are only synced to iCloud (during device backups) or optionally to dropbox, but never to the app developers (in fact, there is no custom backend involved with this app). The source code is <a href="https://github.com/CarlAmbroselli/contactnotes" target="_blank">open source</a> and released under MIT license.
+        </p>
+
+        <h4>Features:</h4>
+        <ul>
+            <li>Divide your contacts into four buckets:
+                <ul>
+                    <li>people on the A list are contacted every three weeks,</li>
+                    <li>people on the B list every two months,</li>
+                    <li>people on the C list every six,</li>
+                    <li>and people on the D list once a year.</li>
+                </ul>
+            </li>
+            <li>
+                Take high-level notes after meeting or chatting with people, i.e. what they are up to, events that are ahead of them or other nice things to pick up next time you reach out
+            </li>
+            <li>
+                Set reminders on notes, i.e. if you learned that your friend is heading on a hiking trip next month or has an important exam coming up, set a reminder to reach out how it went on that date
+            </li>
+            <li>
+                Backup via iCloud (device backups) or dropbox (optional). There is no custom backend involved in the app, notes are never transferred to the app developers.
+            </li>
+            <li>
+                Mark contacts that you still have on your mind to follow-up with, but haven't had the time yet.
+            </li>
+        </ul>
+
+        <hr>
+
+        <h4>Ideas for additional features that might come some day:</h4>
+        <ul>
+            <li>Ability to sync across devices (opt-in)</li>
+            <li>Ability to write notes back to the native apple contact item</li>
+            <li>Tell me about your ideas! contactnotes[at-sign]carl-ambroselli.de</li>
+        </ul>
+
+        <footer><small><a class="alternative-link" href="privacy.html">Privacy details (written for humans)</a> | <a class="alternative-link" href="impressum.html" rel=”nofollow”>Impressum</a></small></footer>
+    </article>
+</body>
+</html>

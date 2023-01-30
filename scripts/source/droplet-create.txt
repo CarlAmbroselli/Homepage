@@ -71,5 +71,5 @@ fi
 
 msg "Creating a droplet using image $IMAGE of size $INSTANCE_SIZE."
 msg "This command will finish once the droplet is created."
-doctl compute droplet create --region fra1 --ssh-keys "b5:c0:09:bd:dc:ac:3e:75:85:28:0a:f8:a4:8e:02:78" --image $IMAGE --wait --size $INSTANCE_SIZE $(date +"instance-%m-%d-%Y-%H-%M")
+doctl compute droplet create --region fra1 --ssh-keys "a8:8b:cd:2a:67:80:33:1d:84:52:c7:7b:0a:d6:49:63" --image $IMAGE --wait --size $INSTANCE_SIZE $(date +"instance-%m-%d-%Y-%H-%M")
 

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+read -p "Enter ansible password: " ANSIBLE_VAULT_PASSWORD && export ANSIBLE_VAULT_PASSWORD
+IP=$(/home/carl/.local/bin/droplet-create | grep droplet_agent | tr -s ' ' | cut -d ' ' -f 3)
+sed -i "s|.*ansible_user.*|$IP ansible_user=root ansible_ssh_private_key_file=~/.ssh/ansible_id_ed25519|g" ~/git/mothership/ansible/inventory
+cd ~/git/mothership/ansible
+ansible-playbook -i inventory host-setup.yml --vault-password-file ./helpers/vault-env
+
+echo "Done. Access $IP"

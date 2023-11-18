@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Converter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Color Converter</h1>
+    <p style="color: #7f7f7f">This tool takes two colors. It will merge the hue of the reference color with the saturation and brightness of the base color and output the result as hex.</p>
+    <div class="input-container">
+      <label for="baseColor">Base Color:</label>
+      <div class="color-wrapper">
+        <div style="background-color: #EBDCCC" id="base-color-div" class="color-container">&nbsp;</div>
+        <input type="text" id="baseColor" placeholder="Enter base color" value="#EBDCCC" />
+      </div>
+    </div>
+    <div class="input-container">
+      <label for="referenceColor">Reference Color:</label>
+      <div class="color-wrapper">
+        <div style="background-color: #EBDCCC" id="reference-color-div" class="color-container">&nbsp;</div>
+        <input type="text" id="referenceColor" placeholder="Enter reference color"/>
+      </div>
+    </div>
+    <button onclick="convertColors()">Convert</button>
+    <div class="result-container" style="display: none;" id="result">
+      <p>Result Color:</p>
+      <div id="resultColor"></div>
+      <button onclick="copyToClipboard()">Copy to Clipboard</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
